@@ -9,7 +9,7 @@ async function fetchGifs() {
   try {
     const responses = await Promise.all(urls.map(url => fetch(url)));
     const data = await Promise.all(responses.map(response => response.json()));
-    const gifs = data.map(item => item.data.images.fixed_height.url);
+    const gifs = data.map(gif => gif.data.images.fixed_height.url);
     return gifs;
   }
   catch (error) {
@@ -18,5 +18,15 @@ async function fetchGifs() {
 
 }
 
+async function fetchJokes() {
+  try {
+    const response = await fetch('https://v2.jokeapi.dev/joke/Any?blacklistFlags=racist,sexist&type=twopart&amount=10')
+    const data = await response.json();
+    return data.jokes
+  }
+  catch (error) {
+    console.error('ERRRR SOMETHING WENT WRONG')
+  }
+}
 
-export { fetchGifs }
+export { fetchGifs, fetchJokes }
