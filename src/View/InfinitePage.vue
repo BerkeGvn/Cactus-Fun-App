@@ -1,12 +1,14 @@
 <template>
   <ul>
-    <li v-for="(content, index) in contents" :key="index">
-      <img :src="content.gif" alt="" />
-      <div class="joke">
+    <BaseCard v-for="(content, index) in contents" :key="index" :card="`card-${(index % 6) + 1}`">
+      <template #gif>
+        <img :src="content.gif" alt="" />
+      </template>
+      <template #default>
         <p>{{ content.joke.setup }}</p>
         <p>{{ content.joke.delivery }}</p>
-      </div>
-    </li>
+      </template>
+    </BaseCard>
   </ul>
 
   <h1 v-if="isLoading">LOADING...</h1>
@@ -14,6 +16,7 @@
 </template>
 
 <script setup>
+import BaseCard from '../components/ui/BaseCard.vue'
 import { ref, watch } from 'vue'
 import { fetchGifs, fetchJokes } from '../api/apiCalls'
 import InstersectionObserver from '../components/InstersectionObserver.vue'
@@ -53,10 +56,7 @@ function loadMore() {
 </script>
 
 <style lang="scss" scoped>
-li {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
+img {
+  border-radius: 10px;
 }
 </style>
