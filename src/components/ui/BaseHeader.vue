@@ -34,24 +34,41 @@ header {
   gap: 2.1rem;
   margin: 2.1rem 0;
   & .heading {
-    font-size: 2.1rem;
     text-align: center;
     color: #373636;
     & a {
       text-decoration: none;
     }
     & h1 {
+      font-size: 4.2rem;
       color: #22750f;
     }
     & h2 {
+      font-size: 3.2rem;
       color: #bb3d17;
     }
   }
 }
 svg {
-  height: 100px;
-  width: 100px;
+  height: 10rem;
+  width: 10rem;
   stroke: #0ba623;
   fill: #22750f;
+}
+@media only screen and (max-width: 37.5em) {
+  header {
+    & .heading {
+      & h1 {
+        font-size: 3.2rem;
+      }
+      & h2 {
+        font-size: 2.1rem;
+      }
+    }
+  }
+  svg {
+    height: 8rem;
+    width: 8rem;
+  }
 }
 </style>

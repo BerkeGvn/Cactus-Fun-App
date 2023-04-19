@@ -25,16 +25,6 @@ const contents = ref([])
 const isLoading = ref(null)
 const page = ref(0)
 
-// I am thinking about adding contact info in the list, might delete it
-/* watch(page, (number) => {
-  if (number % 3 === 0) {
-    contents.value.push({
-      gif: 'https://avatars.githubusercontent.com/u/62262384?v=4',
-      joke: { setup: 'Berke Guven', delivery: 'Github' }
-    })
-  }
-}) */
-
 async function fetchData() {
   isLoading.value = true
   const gifData = await fetchGifs()

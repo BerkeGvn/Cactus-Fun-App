@@ -57,5 +57,25 @@ const props = defineProps(['layout', 'card'])
     clip-path: polygon(0 16%, 100% 0, 100% 86%, 0 100%);
     flex-direction: row-reverse;
   }
+  @media only screen and (max-width: 37.5em) {
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 6rem 2rem;
+    font-size: 1.6rem;
+    & .joke :slotted(p:last-child) {
+      font-size: 1.2rem;
+    }
+    &-1,
+    &-3,
+    &-5 {
+      clip-path: polygon(0 0, 100% 12%, 100% 100%, 0 90%);
+    }
+    &-2,
+    &-4,
+    &-6 {
+      clip-path: polygon(0 12%, 100% 0, 100% 90%, 0 100%);
+    }
+  }
 }
 </style>

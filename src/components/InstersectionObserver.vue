@@ -10,7 +10,7 @@ const emit = defineEmits(['observe'])
 
 onMounted(() => {
   const options = {
-    threshold: 1.0
+    threshold: 0.7
   }
   const pageObserver = new IntersectionObserver(([entry]) => {
     if (entry.isIntersecting) {
@@ -22,4 +22,9 @@ onMounted(() => {
 })
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+div {
+  height: 10px;
+  opacity: 0;
+}
+</style>
