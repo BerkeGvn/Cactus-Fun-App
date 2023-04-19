@@ -35,10 +35,10 @@ const props = defineProps(['layout', 'card'])
     background-color: #f18788;
   }
   &-3 {
-    background-color: #df7a31;
+    background-color: #eb985c;
   }
   &-4 {
-    background-color: #efca84;
+    background-color: #5fe781;
   }
   &-5 {
     background-color: #f6c445;

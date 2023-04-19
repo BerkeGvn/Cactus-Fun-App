@@ -10,16 +10,16 @@
       </template>
     </BaseCard>
   </ul>
-
-  <h1 v-if="isLoading">LOADING...</h1>
+  <LoadingSpinner v-if="isLoading"></LoadingSpinner>
   <InstersectionObserver @observe="loadMore"></InstersectionObserver>
 </template>
 
 <script setup>
 import BaseCard from '../components/ui/BaseCard.vue'
-import { ref, watch } from 'vue'
-import { fetchGifs, fetchJokes } from '../api/apiCalls'
 import InstersectionObserver from '../components/InstersectionObserver.vue'
+import LoadingSpinner from '../components/ui/LoadingSpinner.vue'
+import { ref } from 'vue'
+import { fetchGifs, fetchJokes } from '../api/apiCalls'
 
 const contents = ref([])
 const isLoading = ref(null)
@@ -55,6 +55,7 @@ function loadMore() {
 }
 
 function giveCardStyle(index) {
+  // According to card's list number this function gives its style
   return `card-${(index % 6) + 1}`
 }
 </script>

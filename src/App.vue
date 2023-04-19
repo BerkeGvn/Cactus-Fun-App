@@ -1,8 +1,6 @@
 <template>
   <main class="main">
-    <header>
-      <h1>Cactus App</h1>
-    </header>
+    <BaseHeader></BaseHeader>
     <section>
       <InfinitePage></InfinitePage>
     </section>
@@ -11,6 +9,7 @@
 
 <script setup>
 import InfinitePage from './View/InfinitePage.vue'
+import BaseHeader from './components/ui/BaseHeader.vue'
 </script>
 
 <style lang="scss">
@@ -34,6 +33,6 @@ html {
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #b7ee9e;
+  background-color: #f2eaab;
 }
 </style>

@@ -10,7 +10,7 @@ const emit = defineEmits(['observe'])
 
 onMounted(() => {
   const options = {
-    margin: '20px'
+    threshold: 1.0
   }
   const pageObserver = new IntersectionObserver(([entry]) => {
     if (entry.isIntersecting) {
