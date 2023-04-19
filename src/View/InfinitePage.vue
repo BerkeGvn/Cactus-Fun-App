@@ -1,6 +1,6 @@
 <template>
   <ul>
-    <BaseCard v-for="(content, index) in contents" :key="index" :card="`card-${(index % 6) + 1}`">
+    <BaseCard v-for="(content, index) in contents" :key="index" :card="giveCardStyle(index)">
       <template #gif>
         <img :src="content.gif" alt="" />
       </template>
@@ -26,14 +26,14 @@ const isLoading = ref(null)
 const page = ref(0)
 
 // I am thinking about adding contact info in the list, might delete it
-watch(page, (number) => {
+/* watch(page, (number) => {
   if (number % 3 === 0) {
     contents.value.push({
       gif: 'https://avatars.githubusercontent.com/u/62262384?v=4',
       joke: { setup: 'Berke Guven', delivery: 'Github' }
     })
   }
-})
+}) */
 
 async function fetchData() {
   isLoading.value = true
@@ -52,6 +52,10 @@ async function fetchData() {
 
 function loadMore() {
   fetchData()
+}
+
+function giveCardStyle(index) {
+  return `card-${(index % 6) + 1}`
 }
 </script>
 
